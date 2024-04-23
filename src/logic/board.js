@@ -8,3 +8,8 @@ export const checkWinner = (boardToCheck) => {
     }
   return null;
 }
+export function checkIfBoardIsFilled(currentBoard) {
+    if (currentBoard.every(e => e !== null)) {
+      return true;
+    }
+}

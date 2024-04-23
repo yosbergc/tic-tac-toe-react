@@ -2,7 +2,7 @@ import React from "react"
 import confetti from 'canvas-confetti'
 import {Square} from './components/Square/Square.jsx'
 import { Turns } from "./Constants.js";
-import { checkWinner } from "./logic/board.js";
+import { checkWinner, checkIfBoardIsFilled } from "./logic/board.js";
 import { Endgame } from "./components/Square/Endgame.jsx";
 function App() {
   const [board, setBoard] = React.useState(Array(9).fill(null));
@@ -21,7 +21,8 @@ function App() {
       confetti()
       setWinner(ganador)
     }
-    if (boardActual.every(celda => celda !== null)) {
+    let check = checkIfBoardIsFilled(boardActual)
+    if (check) {
       setWinner(false);
     }
   }
