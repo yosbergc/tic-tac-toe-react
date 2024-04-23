@@ -1,4 +1,5 @@
 import React from "react"
+import confetti from 'canvas-confetti'
 const Square = ({children, isSelected, updateBoard, index, turn}) => {
 
   return <div className={`square ${isSelected ? 'is-selected' : ''}`} onClick={() => {
@@ -44,6 +45,7 @@ function App() {
     setTurn(newTurn)
     let ganador = checkWinner(boardActual)
     if (ganador) {
+      confetti()
       setWinner(ganador)
     }
     if (boardActual.every(celda => celda !== null)) {
