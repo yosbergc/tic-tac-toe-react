@@ -4,6 +4,7 @@ import {Square} from './components/Square/Square.jsx'
 import { Turns } from "./Constants.js";
 import { checkWinner, checkIfBoardIsFilled } from "./logic/board.js";
 import { Endgame } from "./components/Square/Endgame.jsx";
+
 function App() {
   const [board, setBoard] = React.useState(Array(9).fill(null));
   const [turn, setTurn] = React.useState(Turns.X);
