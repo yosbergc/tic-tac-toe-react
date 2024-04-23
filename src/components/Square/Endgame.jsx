@@ -1,11 +1,11 @@
 import { Square } from "./Square"
 function Endgame({winner, resetearJuego}) {
-    return (<>
-        {winner !== null && (<section className="winner">
-    <div className="text">
-      <h2>
-        {winner === false ? 'Empate!' : `Ganó:`}
-      </h2>
+  if (winner === null) return null
+  let winnerText = winner === false ? 'Empate!' : 'Ganó';
+    return (
+    <section className="winner">
+      <div className="text">
+        <h2>{winnerText}</h2>
         {winner && <header className="win">
           <Square>{winner}</Square>
           </header>}
@@ -13,8 +13,7 @@ function Endgame({winner, resetearJuego}) {
         <button onClick={resetearJuego}>Empezar de nuevo</button>
       </footer>
     </div>
-  </section>)}
-  </>)
+  </section>)
 }
 
 export {Endgame}
